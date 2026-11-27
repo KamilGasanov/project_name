@@ -14,7 +14,15 @@ COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 WORKDIR /var/www/html
 COPY . .
 
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader \
-    && chown -R www-data:www-data storage bootstrap/cache
+ENV DB_CONNECTION=sqlite \
+    DB_DATABASE=/var/www/html/database/database.sqlite
+
+RUN php --ri pdo_sqlite \
+    && composer install --no-interaction --prefer-dist \
+    && touch "$DB_DATABASE" \
+    && php artisan migrate --seed --force \
+    && composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chown www-data:www-data "$DB_DATABASE"
 
 EXPOSE 10000

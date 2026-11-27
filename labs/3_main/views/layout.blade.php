@@ -39,7 +39,13 @@
 <body>
     <header>
         <nav class="container" aria-label="Основное меню">
-            @php($routePrefix = request()->routeIs('lab4.*') ? 'lab4.' : 'lab3.')
+            @php
+                $routePrefix = match (true) {
+                    request()->routeIs('lab6.*') => 'lab6.',
+                    request()->routeIs('lab4.*') => 'lab4.',
+                    default => 'lab3.',
+                };
+            @endphp
             @foreach (['home' => 'Главная', 'about' => 'О нас', 'contacts' => 'Контакты'] as $page => $label)
                 <a href="{{ route($routePrefix.$page) }}" @if (request()->routeIs($routePrefix.$page)) aria-current="page" @endif>{{ $label }}</a>
             @endforeach
