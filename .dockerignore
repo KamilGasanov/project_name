@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+!.env.example
+auth.json
+vendor
+node_modules
+bootstrap/cache/*.php
+storage/*.key
+storage/logs/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
