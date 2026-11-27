@@ -34,12 +34,14 @@
         dd:last-child { margin-bottom: 0; }
         footer { border-top: 1px solid #dae3ed; padding-block: 1rem; }
     </style>
+    @stack('styles')
 </head>
 <body>
     <header>
         <nav class="container" aria-label="Основное меню">
+            @php($routePrefix = request()->routeIs('lab4.*') ? 'lab4.' : 'lab3.')
             @foreach (['home' => 'Главная', 'about' => 'О нас', 'contacts' => 'Контакты'] as $page => $label)
-                <a href="{{ route('lab3.'.$page) }}" @if (request()->routeIs('lab3.'.$page)) aria-current="page" @endif>{{ $label }}</a>
+                <a href="{{ route($routePrefix.$page) }}" @if (request()->routeIs($routePrefix.$page)) aria-current="page" @endif>{{ $label }}</a>
             @endforeach
         </nav>
     </header>

@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::prefix('3_main')->name('lab3.')->group(base_path('labs/3_main/routes.php'));
+
+Route::prefix('4_preview')->name('lab4.')->group(base_path('labs/4_preview/routes.php'));
