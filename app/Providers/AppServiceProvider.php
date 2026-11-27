@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         $this->loadViewsFrom(base_path('labs/4_preview/views'), 'lab4');
         $this->loadViewsFrom(base_path('labs/5_reg/resources/views'), 'lab5');
         $this->loadViewsFrom(base_path('labs/6_articles/views'), 'lab6');
+        $this->loadViewsFrom(base_path('labs/7_crud/views'), 'lab7');
         $this->loadMigrationsFrom(base_path('labs/6_articles/migrations'));
     }
 }

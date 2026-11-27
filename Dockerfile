@@ -23,6 +23,6 @@ RUN php --ri pdo_sqlite \
     && php artisan migrate --seed --force \
     && composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader \
     && chown -R www-data:www-data storage bootstrap/cache \
-    && chown www-data:www-data "$DB_DATABASE"
+    && chown www-data:www-data database "$DB_DATABASE"
 
 EXPOSE 10000
