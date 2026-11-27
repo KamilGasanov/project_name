@@ -41,6 +41,7 @@
         <nav class="container" aria-label="Основное меню">
             @php
                 $routePrefix = match (true) {
+                    request()->routeIs('lab8.*') => 'lab8.',
                     request()->routeIs('lab7.*') => 'lab7.',
                     request()->routeIs('lab6.*') => 'lab6.',
                     request()->routeIs('lab4.*') => 'lab4.',

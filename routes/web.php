@@ -26,3 +26,5 @@ Route::prefix('5_reg')->name('lab5.')->group(base_path('labs/5_reg/routes.php'))
 Route::prefix('6_articles')->name('lab6.')->group(base_path('labs/6_articles/routes.php'));
 
 Route::prefix('7_crud')->name('lab7.')->group(base_path('labs/7_crud/routes.php'));
+
+Route::prefix('8_hw3')->name('lab8.')->group(base_path('labs/8_hw3/routes.php'));
